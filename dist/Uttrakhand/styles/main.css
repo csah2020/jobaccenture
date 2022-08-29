@@ -1,0 +1,321 @@
+/*https://www.youtube.com/watch?v=B4d7Ct9wngs */
+
+
+
+html{
+    background-image:-moz-linear-gradient(to right, #d8d5d5,#9b8787);
+    background-image:-webkit-linear-gradient(to right, #d8d5d5,#9b8787);
+    background-image:-o-linear-gradient(to right, #d8d5d5,#9b8787);
+    background-image:linear-gradient(to right, #d8d5d5,#9b8787);
+    font-size:16px;
+}
+
+   
+    
+
+*{margin:0;padding:0;box-sizing:border-box;}
+/*body{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 100%;
+    width:992px;
+    margin:15px auto;
+    padding:15px 0;
+    position:relative;
+}*/
+
+body{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 100%;
+    width:992px;
+    margin:15px auto;
+    padding:15px 0;
+    position:relative;
+
+    display:grid;
+    grid-template: repeat(4,auto)/auto 1fr;
+    grid-template-areas:
+    "head head"
+    "nav nav"
+    "main main"
+    "footer footer"
+       
+}
+
+#mobile_nav_tier{display:none;}
+
+
+header{grid-area:head;}
+#nav_tier{grid-area:nav;}
+
+
+article,aside,h1,h2,h3,p{
+    margin:0;
+    padding:0;
+}
+
+article,aside{
+    margin-top:2rem ;
+    margin-bottom:1rem;
+}
+
+a{font-weight: bold;}
+a:hover,a:focus{color:rgb(64, 64, 131)}
+
+ul{margin-top:1em;
+   margin-bottom:1.5em;}
+li,p{font-size: 90%;}
+li{padding-bottom:.35em;list-style-type:none;}
+p{padding-bottom:.5em}
+em{font-weight: bold;}
+a{text-decoration:none;}
+
+
+header{padding-bottom:2em;} 
+header img{float:left;margin-left:21px;width:80px;}
+header h2{
+    color:#f3cea4;
+    font-size:170%;
+    text-align:30px;
+    text-shadow: 2px 2px 2px rgb(58, 1, 1);
+     }
+
+ header h3{
+    color:#cca881;
+    font-size:130%;
+    font-style: italic;
+    text-align:30px;
+    
+    }
+ 
+#nav_tier a{
+    color:#f6f7f8;
+    background:#254441;
+    
+    height:4rem;
+    font-family:lato;
+    font-weight:bold;
+    display:flex;
+    align-items:center;
+    justify-content: center;
+    text-decoration:none;
+    transition:background 0.4s;
+}
+
+#nav_tier a{
+    position: relative;
+}
+
+#nav_tier a::before{
+    content:'';
+    display:block;
+    position: absolute;
+    width:4rem;
+    height:.2rem;
+    background: #002211;
+    top:.5rem;
+    left:3rem;
+    right:0;
+    transform:scale(0,1);
+    transform-origin:center;
+    transition:transform ease-in-out 150ms;
+
+}
+#nav_tier a:hover::before{transform:scale(1,1);}
+#nav_tier a:hover{background:#4f5c51;}
+
+#nav_tier ul{list-style:none;display:flex;}
+
+#nav_tier ul li{width:100%;text-align:center;position:relative;}
+
+#nav_tier ul li ul {position:absolute;display:none;top:3rem;}
+#nav_tier ul li:hover .submenu-1{display:flex;flex-direction: column;
+    width:100%; }
+
+
+    #nav_tier ul li:hover ul li ul{display:none;}
+
+    #nav_tier ul li:hover ul li:hover ul{
+        display:flex;flex-direction: column;left:100%;width:10rem;top:-.8rem;
+        }
+
+        
+        main{
+            margin:0 6%;
+           grid-area:main;
+          display:grid;
+          grid-template: auto/1fr ;
+          grid-gap:5%;
+          grid-template-areas: "article aside";
+      }
+      
+      article{grid-area: article;margin-left: .5rem;}
+      article h2{margin-bottom: 1rem;}
+      article p:nth-child(3) {margin-bottom: 1rem;}
+      aside{width:12rem;max-height: 40rem;padding:1rem;background-color:#c5c5bf;grid-area:aside;margin-left: 2rem;right:1rem;}
+      aside h2{font-size:110%;padding-bottom:.4em;}
+      aside h3{font-size:90%;font-weight:normal;margin-bottom:.4em;}
+      aside img{margin-bottom:.9em;}
+      aside p{margin-bottom:.2em;}
+      footer{width:100%;clear:both;grid-area:footer;}
+      footer p{padding-top:1.5rem;height:4rem;font-size:.75em;text-align:center;background-color:black ;color:#f3cea4};
+
+        
+    
+
+
+
+
+
+@media only screen and (max-width: 959px){
+    #nav_tier ul li a{font-size:.875em;}  
+    article h1{font-size:1.5em;}
+    aside h2{font-size:1.12em;}
+}
+
+    
+@media only screen and (max-width: 767px){
+    body{
+        
+        position:relative;
+        width:95%;
+            display:grid;
+            grid-template:repeat(4, auto) / 1fr;
+            grid-gap: 0;
+            grid-template-areas:
+            "head "
+            "nav"
+            "main"
+            "footer";
+            }
+
+        header, nav,aside,article,footer{
+            display:grid;
+            
+            margin-bottom: 7px;
+            margin:0 1rem;
+            
+            
+            
+        }
+        #nav_tier{display:none};
+                        
+        header{padding-bottom: 1rem;display:grid;
+            grid-area:head;
+            grid-template:auto,auto, auto/ 1fr;
+            grid-gap: 1rem;
+        }
+                    
+         #mobile_nav_tier{display:grid;grid-area:nav;}
+         
+        main{
+            
+            
+            grid-area:main;
+           
+           display:grid;
+           grid-template: auto,auto/ auto;
+           
+           grid-gap:.1rem;
+           grid-template-areas:
+           "aside"
+           "article"
+           ;
+            
+            
+             }
+    
+           
+          
+        aside{ 
+            background-color:  rgb(202, 202, 202);
+            grid-area:aside;
+            height:300px;
+            width: 100%;
+            grid-auto-flow: column;
+            grid-column-gap:5%;
+            grid-template: 120px/repeat(3, 80px);
+            align-content: center;
+            justify-content: space-evenly;
+            
+            
+            
+           }
+           aside h2{margin: -5rem 1rem 1rem;}
+           aside h3{margin: -1rem -3rem .2rem -4.5rem;}
+           aside h3:nth-of-type(3){margin-left:2rem;margin-right:-4.5rem;}
+           aside img{margin-top:3.5rem;}
+           aside img:nth-of-type(1){margin-left:-12rem;}
+           aside img:nth-of-type(2){margin-left:-7.5rem;}
+            aside img:nth-of-type(3){margin-left:-5rem;}
+           
+                    
+        article{margin:1rem;font-size: 1rem;}
+           
+  
+@media only screen and (max-width:479px){
+    body{        
+        position:relative;
+        width:95%;
+            display:grid;
+            grid-template:repeat(4, auto) / 1fr;
+            grid-gap: 0;
+            grid-template-areas:
+            "head "
+            "nav"
+            "main"
+            "footer";
+            }
+
+        header, nav,aside,article,footer{
+            display:grid;margin-bottom: 7px;margin:0 1rem; }
+        #nav_tier{display:none};
+                        
+        header{padding-bottom: 1rem;display:grid;
+            grid-area:head;
+            grid-template:auto,auto, auto/ 1fr;
+            grid-gap:.8rem;
+        }
+                    
+         #mobile_nav_tier{display:grid;grid-area:nav;}
+         
+        main{         
+            grid-area:main;
+            display:grid;
+           grid-template: auto,auto/ auto;
+            
+           grid-template-areas:
+           "aside"
+           "article"
+           ;         
+            } 
+                   
+        aside{ 
+            background-color:   rgb(175, 172, 172);
+            grid-area:aside;
+            height:250px;
+            width: 98%;
+            grid-auto-flow: column;
+            grid-template: auto auto/ 1fr, 1fr, 1fr;
+            align-content: center;
+            justify-content: space-around;
+            margin-left:.2rem;          
+            }
+           aside h2{margin: -3rem 1rem 1rem;}
+           aside h3{font-size: .8rem;padding-top: 1.5rem;}
+           aside a{font-size: .7rem;}
+           aside img{margin-top:3.5rem;width:4.5rem;height:4.5rem;}
+           aside img:nth-of-type(1){margin-left:-11rem;}
+           aside img:nth-of-type(2){margin-left:-10rem;}
+           aside img:nth-of-type(3){margin-right:2rem;}
+           aside h3:nth-of-type(1){margin-left:-5rem;}
+           aside h3:nth-of-type(2){margin-left:-9.3rem;}
+           aside h3:nth-of-type(3){margin-left:-4rem;}
+                 
+           
+                    
+        article{margin:1rem;font-size: .9rem;}
+     footer{grid-area: footer;}      
+    footer p{padding:1.8rem ;}
+
+        }
+}
